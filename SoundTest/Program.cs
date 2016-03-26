@@ -12,12 +12,9 @@ namespace SoundTest
     {
         static void Main(string[] args)
         {
-            string filePath = @"C:\Users\Pavel\Desktop\mono.wav";
-            WaveGenerator wave = new WaveGenerator(WaveExampleType.MonoWave);
+            string filePath = @"C:\Users\Pavel\Desktop\stereo.wav";
+            WaveGenerator wave = new WaveGenerator(WaveExampleType.ExampleSineWave);
             wave.Save(filePath);
-            
-            //SoundPlayer player = new SoundPlayer(filePath);
-            //player.Play();
         }
     }
 }

@@ -153,10 +153,12 @@ namespace SoundTest
 
                         for (uint i = 0; i < numSamples - 1; i++)
                         {
+                            short outp = Convert.ToInt16(amplitude*Math.Sin(t*i));
+
                             // Fill with a simple sine wave at max amplitude
                             for (int channel = 0; channel < format.wChannels; channel++)
                             {
-                                data.shortArray[i + channel] = Convert.ToInt16(amplitude * Math.Sin(t * i));
+                                data.shortArray[i + channel] = outp;
                             }
                         }
 
@@ -169,18 +171,18 @@ namespace SoundTest
                     {
                         double[] tetrisNoteSequence =
                         {
-                        WaveNoteFreq.E, WaveNoteFreq.B, WaveNoteFreq.C, WaveNoteFreq.D,
-                        WaveNoteFreq.C, WaveNoteFreq.B, WaveNoteFreq.A, WaveNoteFreq.A,
-                        WaveNoteFreq.C, WaveNoteFreq.E, WaveNoteFreq.D, WaveNoteFreq.C, WaveNoteFreq.B,
-                        WaveNoteFreq.C, WaveNoteFreq.D, WaveNoteFreq.E, WaveNoteFreq.C, WaveNoteFreq.A
+                            WaveNoteFreq.E, WaveNoteFreq.B, WaveNoteFreq.C, WaveNoteFreq.D,
+                            WaveNoteFreq.C, WaveNoteFreq.B, WaveNoteFreq.A, WaveNoteFreq.A,
+                            WaveNoteFreq.C, WaveNoteFreq.E, WaveNoteFreq.D, WaveNoteFreq.C, WaveNoteFreq.B,
+                            WaveNoteFreq.C, WaveNoteFreq.D, WaveNoteFreq.E, WaveNoteFreq.C, WaveNoteFreq.A
                         };
 
                         double[] tetrisNoteLength =
                         {
-                        WaveNoteLength.Quarter, WaveNoteLength.Eighth, WaveNoteLength.Eighth, WaveNoteLength.Quarter,
-                        WaveNoteLength.Eighth, WaveNoteLength.Eighth, WaveNoteLength.Quarter, WaveNoteLength.Eighth,
-                        WaveNoteLength.Eighth, WaveNoteLength.Quarter, WaveNoteLength.Eighth, WaveNoteLength.Eighth, WaveNoteLength.ThreeQuarters,
-                        WaveNoteLength.Eighth, WaveNoteLength.Quarter, WaveNoteLength.Quarter, WaveNoteLength.Quarter, WaveNoteLength.Half
+                            WaveNoteLength.Quarter, WaveNoteLength.Eighth, WaveNoteLength.Eighth, WaveNoteLength.Quarter,
+                            WaveNoteLength.Eighth, WaveNoteLength.Eighth, WaveNoteLength.Quarter, WaveNoteLength.Eighth,
+                            WaveNoteLength.Eighth, WaveNoteLength.Quarter, WaveNoteLength.Eighth, WaveNoteLength.Eighth, WaveNoteLength.ThreeQuarters,
+                            WaveNoteLength.Eighth, WaveNoteLength.Quarter, WaveNoteLength.Quarter, WaveNoteLength.Quarter, WaveNoteLength.Half
                         };
 
                         double secondsLong = 0;
