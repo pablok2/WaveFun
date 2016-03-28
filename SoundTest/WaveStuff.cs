@@ -151,15 +151,12 @@ namespace SoundTest
                         // This value is like the period of the wave.
                         double t = (Math.PI * 2 * freq) / (format.dwSamplesPerSec * format.wChannels);
 
-                        for (uint i = 0; i < numSamples - 1; i++)
+                        for (uint i = 0; i < numSamples; i+=2)
                         {
-                            short outp = Convert.ToInt16(amplitude*Math.Sin(t*i));
-
-                            // Fill with a simple sine wave at max amplitude
-                            for (int channel = 0; channel < format.wChannels; channel++)
-                            {
-                                data.shortArray[i + channel] = outp;
-                            }
+                            // Fill in the stereo channels
+                            short outp = Convert.ToInt16(amplitude * Math.Sin(t * i));
+                            data.shortArray[i] = outp;
+                            data.shortArray[i + 1] = outp;
                         }
 
                         // Calculate data chunk size in bytes
